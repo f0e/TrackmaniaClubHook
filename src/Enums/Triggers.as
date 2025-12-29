@@ -38,14 +38,15 @@ namespace Triggers {
         if (pb.ClubPosition < pb.PreviousClubPosition) {
             return true;
         }
+        
         switch (trigger) {
             case Triggers::Medal:
                 return pb.pb.Medal > Medal::GetReachedMedal(pb.pb.Map, pb.pb.PreviousScore);
             case Triggers::Time:
                 return pb.pb.Score < pb.pb.PreviousScore;
+            default:
+                return false;
         }
-        throw("Not implemented - Trigger: " + trigger);
-        return false;
     }
 
 }
